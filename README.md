@@ -1,2 +1,3 @@
-# Faculdade---Mobile
-Aulas de matéria de Desenvolvimento de Softwares para Dispositivos Móveis
+# Repositório da Matéria de Desenvolvimento de Software para Dispositivos Móveis
+
+Este repositório contém todo o conteúdo abordado nas aulas das disciplinas Desenvolvimento de Software para Dispositivos Móveis.
