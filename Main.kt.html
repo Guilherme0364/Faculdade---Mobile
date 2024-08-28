@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Main.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">org</span><span class="s2">.</span><span class="s1">example</span>
+
+<span class="s1">import java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">URI</span>
+<span class="s1">import java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">http</span><span class="s2">.</span><span class="s1">HttpClient</span>
+<span class="s1">import java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">http</span><span class="s2">.</span><span class="s1">HttpRequest</span>
+<span class="s1">import java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">http</span><span class="s2">.</span><span class="s1">HttpResponse</span>
+<span class="s1">import java</span><span class="s2">.</span><span class="s1">net</span><span class="s2">.</span><span class="s1">http</span><span class="s2">.</span><span class="s1">HttpResponse</span><span class="s2">.</span><span class="s1">BodyHandlers</span>
+
+
+<span class="s0">fun </span><span class="s1">main</span><span class="s2">() {</span>
+    <span class="s0">val </span><span class="s1">client: HttpClient </span><span class="s2">= </span><span class="s1">HttpClient</span><span class="s2">.</span><span class="s1">newHttpClient</span><span class="s2">()</span>
+    <span class="s0">val </span><span class="s1">request </span><span class="s2">= </span><span class="s1">HttpRequest</span><span class="s2">.</span><span class="s1">newBuilder</span><span class="s2">()</span>
+        <span class="s2">.</span><span class="s1">uri</span><span class="s2">(</span><span class="s1">URI</span><span class="s2">.</span><span class="s1">create</span><span class="s2">(</span>
+            <span class="s3">&quot;https://omdbapi.com/?t=minions&amp;apikey=d00edac4&quot;</span>
+        <span class="s2">))</span>
+        <span class="s2">.</span><span class="s1">build</span><span class="s2">()</span>
+
+    <span class="s0">val </span><span class="s1">response </span><span class="s2">= </span><span class="s1">client</span>
+        <span class="s2">.</span><span class="s1">send</span><span class="s2">(</span><span class="s1">request</span><span class="s2">, </span><span class="s1">BodyHandlers</span><span class="s2">.</span><span class="s1">ofString</span><span class="s2">())</span>
+
+    <span class="s0">val </span><span class="s1">resultados </span><span class="s2">= </span><span class="s1">response</span><span class="s2">.</span><span class="s1">body</span><span class="s2">().</span><span class="s1">split</span><span class="s2">(</span><span class="s3">&quot;,&quot;</span><span class="s2">)</span>
+
+    <span class="s1">println</span><span class="s2">(</span><span class="s3">&quot;O titulo pesquisado é &quot; </span><span class="s2">+ </span><span class="s1">resultados</span><span class="s2">[</span><span class="s4">0</span><span class="s2">].</span><span class="s1">split</span><span class="s2">(</span><span class="s3">&quot;:&quot;</span><span class="s2">)[</span><span class="s4">1</span><span class="s2">] +</span>
+            <span class="s3">&quot; e o ano de lançamento é &quot; </span><span class="s2">+ </span><span class="s1">resultados</span><span class="s2">[</span><span class="s4">1</span><span class="s2">].</span><span class="s1">split</span><span class="s2">(</span><span class="s3">&quot;:&quot;</span><span class="s2">)[</span><span class="s4">1</span><span class="s2">])</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
